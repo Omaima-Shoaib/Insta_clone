@@ -44,7 +44,9 @@ class PostController extends Controller
         'caption'=>$request->caption,
         'user_id'=>$userid
     ]);
-    $post->save();
+     $post->save();
+    //$user->posts()->create(['caption'=>$request['caption']]);
+
         if($request->hasFile('images')){
                 $files=$request->file('images');
                //dd($userid);
@@ -52,7 +54,6 @@ class PostController extends Controller
          $data['image']=   $file ->store('posts','images');
     //    $data['image']= $request->file('image')->store('posts','images');
          
-      $user->posts()->create(['caption'=>$request['caption']]);
             $request['post_id']=$post->id;
       Image::create(['image'=>$data['image'],'post_id'=>$request['post_id']]);
                 }

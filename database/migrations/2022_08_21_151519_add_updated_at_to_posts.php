@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->timestamp('updated_at')->nullable();
+        // Schema::table('posts', function (Blueprint $table) {
+        //     $table->timestamp('updated_at')->nullable();
 
-        });
+        // });
     }
 
     /**

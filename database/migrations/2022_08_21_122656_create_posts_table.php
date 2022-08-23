@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('caption');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
+
           
         });
     }

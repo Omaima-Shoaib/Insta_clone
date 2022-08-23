@@ -23,7 +23,21 @@
         
         padding-top: 15px; 
         box-shadow: 10px 10px 10px rgba(193, 191, 191, 0.463);
-    
+    }
+    a{
+        color: #fa4106;
+        text-decoration: none
+    }
+    .btn{
+        background-color: #fa4106;
+        border:none;background-color:#fa4106;border-radius:5px;width:80px;
+        color: white;
+        margin: 10px
+    }
+    .btn-container{
+        
+        text-align: center;
+        margin-bottom: 25px;
     }
     </style>
 </head>
@@ -33,16 +47,23 @@
 
 @foreach($posts as $post)
 <div class="caption">
-{{  $post['caption'] }}
+{{  $post['caption'] }} 
+{{-- {{ $post['id'] }} --}}
+
 </div>
 <br>
 @foreach($images as $image)
 
 <img src='{{ Storage::disk('images')->url($image->image) }}' ><br>
 
-
 @endforeach
 @endforeach
+<div class="btn-container">
+    <form action="{{ route('savedposts.update',['post_id'=>$post['id']]) }}" method="POST">
+       
+        {{-- <a href="" >Save Post</a> --}}
+        <button class="btn">Save Post</button>
+        </form></div>
 </div>
 </body>
 </html>

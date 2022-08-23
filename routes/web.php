@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SavedPostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,10 @@ Route ::get('posts/create' ,[PostController::class,'create'])->name('posts.creat
 ;
 Route ::post('/posts',[PostController::class,'store'])->name('posts.store');
 Route ::get('/posts/{id}',[PostController::class,'show'])->where('id','[0-9]+')->name('posts.show');
+
+
+// Route ::post('/savedposts',[SavedPostController::class,'store'])->name('savedposts.store');
+Route ::get('/savedposts',[SavedPostController::class,'index'])->name('savedposts.index');
+Route ::post('/savedposts',[SavedPostController::class,'update'])->name('savedposts.update');
 
 require __DIR__.'/auth.php';

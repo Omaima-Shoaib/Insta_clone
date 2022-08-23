@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string("image");
             $table->foreignId("post_id")->constraint('posts')->onDelete("cascade");
+            // $table->timestamp('created_at')->nullable();
+            // $table->timestamp('updated_at')->nullable();
             $table->timestamps();
         });
     }
