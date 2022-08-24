@@ -50,7 +50,7 @@
 
                     <div class="posts">
                         <pre><span class="postsnb" style="font-family: Arial, Helvetica, sans-serif;">Posts  </span></pre>
-                      <pre><span class="number1"> $posts->count()</span></pre>
+                      <pre><span class="number1"> {{$posts->count()}}</span></pre>
                     </div>
                     
 
