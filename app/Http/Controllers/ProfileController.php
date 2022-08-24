@@ -20,7 +20,7 @@ if(Auth::check()){
     $following=followship::where('user1_id',auth()->user()->id)->get();
     $posts=Post::where('user_id','!=',auth()->user()->id)->get();
      $user=User::get();//we can use it to count all users in db
-     return view('users.index',compact("followers","following","user"/*,"posts","user"*/));
+     return view('users.index',compact("followers","following","user","posts"));
 }
         // $user=auth()->user();
         // $data['user']=$user;
