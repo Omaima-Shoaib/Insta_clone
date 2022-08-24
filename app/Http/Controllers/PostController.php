@@ -78,8 +78,8 @@ class PostController extends Controller
         $countposts=Post::where('id',$request['id'])->count();
         if($countposts>0){
         $images=Image::where('post_id',$request['id'])->get();
-        $comments=Comment::paginate(15);
-        $comments=Comment::where('post_id',$request['id'])->get();
+        // $comments=Comment::paginate(4);
+        $comments=Comment::where('post_id',$request['id'])->paginate(4);
         
         return view('posts.show',['id'=>$request['id'],'posts'=>$posts,'post'=>$post,'images'=>$images
         ,'comments'=>$comments]

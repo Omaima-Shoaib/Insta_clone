@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
     img{
-        width: 250px;
+        width:400px;
         /* border-radius: 15px; */
    
         margin:10px 10px 10px 10px;
@@ -19,13 +19,26 @@
    
         border-radius:20px;
         background-color:rgba(193, 191, 191, 0.116);
-        width:fit-content;
+        width:50%;
+        text-align: center;
         padding-top: 15px; 
         box-shadow: 10px 10px 10px rgba(193, 191, 191, 0.463);
         float: left;
         margin-left: 20px;
         margin-right: 20px;
     }
+ 
+    .comments{
+        
+        float: left;
+        width:45%;
+        background-color: rgba(199, 199, 199, 0.181);
+        border-radius: 15px;
+        padding: 10px;
+        box-shadow: 10px 10px 10px rgba(193, 191, 191, 0.463);
+        float: right;
+
+    }   
     a{
         color: #fa4106;
         text-decoration: none
@@ -49,20 +62,8 @@
         height: 25px;
     }
     .btn-container{
-        
         text-align: center;
-        margin-bottom: 25px;
-    }
-    .comments{
-        
-        float: left;
-        width:70%;
-        background-color: rgba(199, 199, 199, 0.181);
-        border-radius: 15px;
-        padding: 10px;
-        box-shadow: 10px 10px 10px rgba(193, 191, 191, 0.463);
-        margin-bottom: 10px;
-
+        margin-bottom:25px;
     }
     .comments p{
 
@@ -109,6 +110,10 @@
     </style>
 </head>
 <body >
+    @extends('dashboard')
+    @section('content')
+        
+
     <div class="mydiv" >
     
 
@@ -155,7 +160,7 @@
     <form  action="{{ route('comments.store') }}" method="post" enctype="multipart/form-data" >.
     <p> <b> comments</b></p>
 <input type="text" name="post_id" hidden value="{{ $post['id'] }}" id="">
-<textarea name="text" id="" cols="105" rows="3"></textarea>
+<textarea name="text" id="" cols="40" rows="3"></textarea>
 <br>
 
 <button class="btn-comment">Add</button>
@@ -163,9 +168,12 @@
 @foreach($comments as $comment)
 <div class="comment-container">
 
-    <img class="avatar" 
-     src="https://gravatar.com/avatar/c919a0eca113d75bd4c37d36167d49c0/?s=240" >
-    {{-- this should be user avatar --}}
+    {{-- <img class="avatar" 
+     src="https://gravatar.com/avatar/c919a0eca113d75bd4c37d36167d49c0/?s=240" > --}}
+     @if(Auth::user()->image)
+     <img class="avatar" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" >
+ @endif
+     {{-- this should be user avatar  --}}
 <b> {{$comment['author']}}</b>
 <br>
  <span class="time"> {{ $comment['created_at'] }} </span>
@@ -176,7 +184,11 @@
 @endforeach
 </form>
 </div>
+
 @endforeach
+{{ $comments->links() }}
+@endsection
+
 </body>
 </html>
 
