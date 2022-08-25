@@ -74,4 +74,17 @@ Route ::delete('/savedposts/{id}',[SavedPostController::class,'destroy'])->where
 
 Route ::post('/comment',[CommentsController::class,'store'])->name('comments.store')->middleware(['auth']);
 Route ::post('/like',[LikeController::class,'store'])->name('likes.store')->middleware(['auth']);
+
+
+
+
+//send mail in queue
+// Route::get('/sendmail', [Controller::class , 'sendMails']);
+// Route::get('/mail', [RegisteredUserNotification::class , 'toMail']);
+
+
+//google socialite
+Route::get('auth/google', [GoogleAuthController::class , 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class , 'callbackGoogle']);
+
 require __DIR__.'/auth.php';
