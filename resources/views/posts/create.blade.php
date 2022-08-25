@@ -29,12 +29,15 @@
             border-radius: 5px; 
             border: none;
             height: 25px;
-            color:white;
-            background-color: #fa4106;
+            color:#fa4106;
+            
+
         }
     </style>
 </head>
 <body >
+    @extends('dashboard')
+    @section('content')
   <div style="width:fit-content;margin: auto" > 
      <div style="margin:auto">
         <form  action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" >
@@ -55,6 +58,7 @@
                 </div>
         </form>
         </div> 
-    </div>  
+    </div> 
+    @endsection 
 </body>
 </html>

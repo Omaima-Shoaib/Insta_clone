@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Comment;
+use App\Models\Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CommentsController extends Controller
+class LikeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,21 +36,23 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+      $myurl=url()->previous();
+      $userid=Auth::id();
 
-        // dd($request['post_id']);
-        $post_id=$request['post_id'];
-        $userid=Auth::id();
-        $author=Auth::user()->name;
-        $comment=new Comment([
-            'post_id'=>$post_id,
-            'author'=>$author,
-            'text'=>$request['text'],
+      try{
+        // dd($myurl);
+
+        $like=new Like([
+            'post_id'=>$request['post_id'],
             'user_id'=>$userid,
         ]);
-        $comment->save();
-        $myurl=url()->previous();
-               return redirect($myurl);
+        $like->save();
+      return redirect( $myurl);
+    }catch(\Exception $e){
+        Like::where('post_id',$request['post_id'])->where('user_id',$userid)->delete();
+        return redirect( $myurl);
 
+    }
     }
 
     /**
@@ -82,9 +84,9 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-      
+        //
     }
 
     /**
