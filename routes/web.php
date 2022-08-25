@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\HTTP\Controllers\ProfileController;
 use App\HTTP\Controllers\FollowerController;
 use App\HTTP\Controllers\FollowingController;
+use App\Http\Controllers\LikeController;
 use App\HTTP\Controllers\PeopleOnInstagramController;
 
 
@@ -72,5 +73,5 @@ Route ::delete('/savedposts/{id}',[SavedPostController::class,'destroy'])->where
 
 
 Route ::post('/comment',[CommentsController::class,'store'])->name('comments.store')->middleware(['auth']);
-
+Route ::post('/like',[LikeController::class,'store'])->name('likes.store')->middleware(['auth']);
 require __DIR__.'/auth.php';

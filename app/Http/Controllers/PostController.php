@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Image;
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -80,9 +81,9 @@ class PostController extends Controller
         $images=Image::where('post_id',$request['id'])->get();
         // $comments=Comment::paginate(4);
         $comments=Comment::where('post_id',$request['id'])->paginate(4);
-        
+        $likes=Like::where('post_id',$request['id'])->count();
         return view('posts.show',['id'=>$request['id'],'posts'=>$posts,'post'=>$post,'images'=>$images
-        ,'comments'=>$comments]
+        ,'comments'=>$comments,'likes'=>$likes]
    );
         // dd($images);
     }

@@ -10,10 +10,11 @@
             height: 30px;
         }
         a{
-            color: white;text-decoration:none
+            color: #fa4106;
+            text-decoration:none;
         }
         td{
-            width: 200px;
+            width: 500px;
           /* background-color: rgba(199, 199, 199, 0.252) */
           
           
@@ -40,6 +41,8 @@
     <title>Document</title>
 </head>
 <body>
+    @extends('dashboard')
+    @section('content')
 <table style="margin: auto;text-align:center">
     <caption>Saved Posts</caption>
 <tr>
@@ -56,11 +59,12 @@
     {{-- {{ $post['post_id'] }} --}}
     {{-- <td><p> {{ $savedpost['created_at'] }}</p></td> --}}
     <td id="tdright"><button type='submit' >
-        <a href="{{ route('posts.show',['id'=>$post['post_id'],'viewpost'=>'viewpost']) }}" >View Post</a></button></td>
+        <a href="{{ route('posts.show',['id'=>$post['post_id'],'viewpost'=>'viewpost']) }}"  style="color: #fa4106;text-decoration:solid">View Post</a></button></td>
     @endforeach  
  
     
 </table>
+@endsection
 </body>
 </html>
 

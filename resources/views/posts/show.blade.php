@@ -9,8 +9,8 @@
     img{
         width:400px;
         /* border-radius: 15px; */
-   
-        margin:10px 10px 10px 10px;
+   margin: auto
+        /* margin:10px 10px 10px 10px; */
     }
     .caption{
         margin-left: 20px;
@@ -107,7 +107,14 @@
         margin: 5px 5px 5px 5px;
 
     }
+    .likes{
+       
+        
+    }
+    
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body >
     @extends('dashboard')
@@ -127,7 +134,20 @@
 @foreach($images as $image)
 
 <img src='{{ Storage::disk('images')->url($image->image) }}' ><br>
+<div class="likes">
+<form action="{{ route('likes.store') }}" method="post">
+    @csrf
+    <input type="text" name="post_id" hidden value="{{ $post['id'] }}" id="">
+    {{$likes}}
+   likes <br>
 
+<button id="dislike"><span class="material-symbols-rounded">
+        thumb_down
+        </span>
+        <span class="material-symbols-rounded">
+    thumb_up
+    </span></button>
+</form></div>
 @endforeach
 
 
@@ -151,16 +171,21 @@
          Remove </button>
         </form>
         @endif
-
+       
   
         </div>
 </div>
+
+<div >
+{{ $comments->links() }}
+</div>
+
 @foreach($posts as $post)
 <div class="comments">
     <form  action="{{ route('comments.store') }}" method="post" enctype="multipart/form-data" >.
     <p> <b> comments</b></p>
 <input type="text" name="post_id" hidden value="{{ $post['id'] }}" id="">
-<textarea name="text" id="" cols="40" rows="3"></textarea>
+<textarea name="text" id="" cols="55" rows="3"></textarea>
 <br>
 
 <button class="btn-comment">Add</button>
@@ -184,9 +209,11 @@
 @endforeach
 </form>
 </div>
-
+<br>
+<div style="display: block">
+</div>
 @endforeach
-{{ $comments->links() }}
+
 @endsection
 
 </body>
