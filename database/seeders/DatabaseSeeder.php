@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         
         $user1=\App\Models\User::create([
              'name' => 'yomna sherif',
-             'email' => 'yomna123sherif@gmail.com',
+             'email' => 'yomna222yomna@gmail.com',
              'username'=> 'yomna',
              'phone'=> '01234567891',
              'password'=> Hash::make(value:12345678),
@@ -34,8 +34,8 @@ class DatabaseSeeder extends Seeder
          ]);
 
          $user2=\App\Models\User::create([
-             'name' => 'yosra sherif',
-             'email' => 'yosra123sherif@gmail.com',
+             'name' => 'lara Ali',
+             'email' => 'lara222laraaaa@gmail.com',
              'username'=> 'yosra',
              'phone'=> '01234567895',
              'password'=>  Hash::make(value:11112222),
