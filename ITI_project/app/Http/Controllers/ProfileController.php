@@ -63,15 +63,39 @@ if(Auth::check()){
         // $user->image=$filename;
         // // $user->store();
         //     }
-        if(request()->hasFile('image')){
-            $path=request()->file('image')->store('images','public');//images is the folder to upload avatars to
-            $user->update([
-                'image'=>$request->image,//avatar
-            ]);
-        }
-        else{
-            $path='user.png';
-        }
+        // if(request()->hasFile('image')){
+        //     $path=request()->file('image')->store('images','public');//images is the folder to upload avatars to
+        //     $user->update([
+        //         'image'=>$request->image,//avatar
+        //     ]);
+        // }
+        // else{
+        //     $path='user.png';
+        // }
+
+$user->update($request->all());
+        $user->name=$request->name;
+        $user->username=$request->username;
+        $user->email=$request->email;
+        $user->phone=$request->phone;
+        if($request->hasFile('image')){
+            $file = $request->file('image');
+            $destinationPath = public_path(). '/storage/images/';
+            $filename = $file->getClientOriginalName();
+            $file->move($destinationPath, $filename);
+ 
+           //then proceeded to save user
+           $user-> image =           
+           $destinationPath.$filename;
+           $user->save();
+           return redirect()->route('users.edit')->with('success','profile updated successfully');
+           
+           }
+           else{
+            $user->save();
+            return redirect()->route('users.edit')->with('success','profile updated successfully');
+           }
+           
         $user->update([
             'name'=>$request->name,
             'username'=>$request->username,
