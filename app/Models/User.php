@@ -18,11 +18,12 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+         'name',
         'username',
         'phone',
         'email',
         'password',
+        'google_id',
         'image',
         'bio',
         'website',
@@ -52,4 +53,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function savedposts(){
         return $this->belongsToMany('App\Models\SavedPost');
     }
+    
+    
+    // public function sendEmailVerificationNotification()
+    // {
+    //   $this->notify(new VerifyEmailQueued);
+    // }
 }
