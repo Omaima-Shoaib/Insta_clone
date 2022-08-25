@@ -11,6 +11,9 @@ use App\HTTP\Controllers\FollowingController;
 use App\Http\Controllers\LikeController;
 use App\HTTP\Controllers\PeopleOnInstagramController;
 
+use App\Http\Controllers\GoogleAuthController;
+
+
 
 
 /*
