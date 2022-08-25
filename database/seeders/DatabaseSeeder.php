@@ -36,7 +36,7 @@ class DatabaseSeeder extends Seeder
          $user2=\App\Models\User::create([
              'name' => 'lara Ali',
              'email' => 'lara222laraaaa@gmail.com',
-             'username'=> 'yosra',
+             'username'=> 'lara',
              'phone'=> '01234567895',
              'password'=>  Hash::make(value:11112222),
              'image'=>'avatar2.png',
