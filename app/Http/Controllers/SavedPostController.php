@@ -19,15 +19,22 @@ class SavedPostController extends Controller
     public function index()
     {
 $userid=Auth::id();
-        	
-// $users = User::join('posts', 'users.id', '=', 'posts.user_id')
-// ->get(['users.*', 'posts.caption'])->count();
- $savedposts= SavedPost::where('user_id',$userid)->get();
- $posts=Post::join('saved_posts','posts.id','=','saved_posts.post_id')->get();
+$username=Auth::user()->name;
+        //	dd($userid);
+
+
+ $countsavedposts= SavedPost::where('user_id','=',$userid)->count();
+ if($countsavedposts>0){
+ $savedposts= SavedPost::where('user_id','=',$userid)->get();
+  $posts=Post::join('saved_posts','saved_posts.post_id','=','posts.id')->where('saved_posts.user_id','=',$userid)->get();
+ 
 // return view('savedposts.index',['posts'=>$savedposts]);
-foreach($savedposts as $saved_post){
-return view('savedposts.index',['posts'=>$posts,'saved_post'=>$saved_post]);
-}
+
+return view('savedposts.index',['posts'=>$posts,'savedposts'=>$savedposts]);
+ }
+ else {
+    return view('savedposts.empty');
+ }
 //  return $savedposts;
 }
 
@@ -107,6 +114,9 @@ return view('savedposts.index',['posts'=>$posts,'saved_post'=>$saved_post]);
      */
     public function destroy($id)
     {
-        //
+SavedPost::where('post_id',$id)->delete();
+
+return redirect('posts');
+
     }
 }

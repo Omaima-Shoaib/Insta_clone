@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Post;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        return view('posts/create');
     }
 
     /**
@@ -42,7 +44,7 @@ class PostController extends Controller
       $posts = Post::paginate(15);
       $post=new Post([
         'caption'=>$request->caption,
-        'user_id'=>$userid
+        'user_id'=>$userid,
     ]);
      $post->save();
     //$user->posts()->create(['caption'=>$request['caption']]);
@@ -70,11 +72,22 @@ class PostController extends Controller
      */
     public function show(Post $post,Image $image,Request $request)
     {
+       $user= Auth::user();
+        // dd(Auth::User());
         $posts=Post::where('id',$request['id'])->get();
+        $countposts=Post::where('id',$request['id'])->count();
+        if($countposts>0){
         $images=Image::where('post_id',$request['id'])->get();
-        return view('posts.show',['id'=>$request['id'],'posts'=>$posts,'post'=>$post,'images'=>$images]);
-    
+        // $comments=Comment::paginate(4);
+        $comments=Comment::where('post_id',$request['id'])->paginate(4);
+        
+        return view('posts.show',['id'=>$request['id'],'posts'=>$posts,'post'=>$post,'images'=>$images
+        ,'comments'=>$comments]
+   );
         // dd($images);
+    }
+    else return "empty post";
+
     }
 
     /**

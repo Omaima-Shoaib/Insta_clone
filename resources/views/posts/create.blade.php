@@ -50,9 +50,7 @@
                    <input type="file" name="images[]" id="" multiple style="margin-left: 20px">
                 </div>
 
-         
-
-                
+        
                 <button type="submit"  class="btn">Add</button>
                 </div>
         </form>

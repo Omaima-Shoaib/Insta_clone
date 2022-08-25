@@ -1,9 +1,10 @@
+<body style="background-color: white">
+    
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
+                       <img  style='width:200px' src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/2048px-Instagram_icon.png">
+        
         </x-slot>
 
         <!-- Session Status -->
@@ -54,3 +55,4 @@
         </form>
     </x-auth-card>
 </x-guest-layout>
+</body>

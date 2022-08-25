@@ -14,7 +14,7 @@
         }
         td{
             width: 200px;
-          background-color: rgba(199, 199, 199, 0.252)
+          /* background-color: rgba(199, 199, 199, 0.252) */
           
           
         }
@@ -41,24 +41,25 @@
 </head>
 <body>
 <table style="margin: auto;text-align:center">
-    {{-- <caption>Saved Posts</caption> --}}
+    <caption>Saved Posts</caption>
 <tr>
-  <th>Caption</th>
-  <th> Saved at </th>
+  <th></th>
+  <th> </th>
   <th></th>
 </tr>
     @foreach($posts as $post )
 
   <tr>
+  
     <td id="tdleft">  {{  $post['caption'] }} </td>
     {{-- <td>  <img src='{{ Storage::disk('images')->url($image->image) }}' ></td> --}}
     {{-- {{ $post['post_id'] }} --}}
-    <td><p> {{ $saved_post['created_at'] }}</p></td>
+    {{-- <td><p> {{ $savedpost['created_at'] }}</p></td> --}}
     <td id="tdright"><button type='submit' >
-        <a href="{{ route('posts.show',['id'=>$post['post_id']]) }}" >View Post</a></button></td>
-    
-    
+        <a href="{{ route('posts.show',['id'=>$post['post_id'],'viewpost'=>'viewpost']) }}" >View Post</a></button></td>
     @endforeach  
+ 
+    
 </table>
 </body>
 </html>
