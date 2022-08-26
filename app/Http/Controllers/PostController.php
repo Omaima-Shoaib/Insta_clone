@@ -77,6 +77,8 @@ class PostController extends Controller
        $user= Auth::user();
         // dd(Auth::User());
         $posts=Post::where('id',$request['id'])->get();
+        $post=Post::where('id',$request['id'])->first();
+        $myuser=User::where('id',$post['user_id'])->first();
         $countposts=Post::where('id',$request['id'])->count();
         if($countposts>0){
         $images=Image::where('post_id',$request['id'])->get();
@@ -84,7 +86,7 @@ class PostController extends Controller
         $comments=Comment::where('post_id',$request['id'])->paginate(4);
         $likes=Like::where('post_id',$request['id'])->count();
         return view('posts.show',['id'=>$request['id'],'posts'=>$posts,'post'=>$post,'images'=>$images
-        ,'comments'=>$comments,'likes'=>$likes]
+        ,'comments'=>$comments,'likes'=>$likes,'myuser'=>$myuser]
    );
         // dd($images);
     }

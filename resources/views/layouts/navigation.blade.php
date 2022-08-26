@@ -21,18 +21,14 @@
                             
                             <a href="{{ route('posts.create') }}">
                                 <button >New Post</button></a>
+            <a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
+
                     </x-nav-link>
                 </div> 
             </div>
-            <a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-<<<<<<< HEAD
-            
-=======
-
->>>>>>> cf4755beb2855b0d20c2f8b28559f7990e4b6b97
                 <x-dropdown align="right" width="48">
                     
                     <x-slot name="trigger">

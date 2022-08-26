@@ -12,22 +12,22 @@
    margin: auto
         /* margin:10px 10px 10px 10px; */
     }
-    .caption{
+    .post_info{
         margin-left: 20px;
+        
+        display: block
     }
     .mydiv{
    
         border-radius:20px;
         background-color:rgba(193, 191, 191, 0.116);
         width:50%;
-        text-align: center;
         padding-top: 15px; 
         box-shadow: 10px 10px 10px rgba(193, 191, 191, 0.463);
         float: left;
         margin-left: 20px;
         margin-right: 20px;
     }
- 
     .comments{
         
         float: left;
@@ -96,6 +96,7 @@
     .time{
         font-size: 12px;
         color: rgb(130, 130, 130);
+    
     }
     .avatar{
         width: 25px;
@@ -107,11 +108,19 @@
         margin: 5px 5px 5px 5px;
 
     }
-    .likes{
-       
-        
+    .caption{
+        margin-left: 10px;
+
     }
-    
+    .likes{
+      text-align: center
+    }
+    .user-name{
+color: #fa4106;
+font-size: 13px;
+display: block;
+
+    }
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -125,17 +134,32 @@
     
 
 @foreach($posts as $post)
-<div class="caption">
-{{  $post['caption'] }} 
+<div class="post_info">
+    <span class="user-name">
+  <b>  {{  $post->user->name }} </b>
+    </span>
+    
+   <span class="time">
+    {{  $post['created_at'] }} 
+</span>
+<br>
+<span></span>
+<span class="caption">
+{{  $post['caption'] }} </span>
+<br>
 {{-- {{ $post['id'] }} --}}
 
 </div>
 <br>
+<div>
 @foreach($images as $image)
 
 <img src='{{ Storage::disk('images')->url($image->image) }}' ><br>
 <div class="likes">
-<form action="{{ route('likes.store') }}" method="post">
+</div>
+@endforeach
+</div>
+<form action="{{ route('likes.store') }}" method="post" class="likes">
     @csrf
     <input type="text" name="post_id" hidden value="{{ $post['id'] }}" id="">
     {{$likes}}
@@ -147,10 +171,7 @@
         <span class="material-symbols-rounded">
     thumb_up
     </span></button>
-</form></div>
-@endforeach
-
-
+</form>
 
 @endforeach
 <div class="btn-container">
