@@ -37,4 +37,5 @@ class SendMails implements ShouldQueue
 //            Mail::to ($_data -> email) -> send (new \App\Mail\TestMail());
 //         }
 //     }
+    
 }

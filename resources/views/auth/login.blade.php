@@ -53,10 +53,8 @@
                 </x-button>
             </div>
         </form>
-        
-        
-        
-        <br>
+                
+<br>
 <div>
 
 <hr> <br>
@@ -75,7 +73,6 @@ fill="#4285f4"/>
 </a> 
 </div>  <br>         
 </div>   
-        
         
         
         

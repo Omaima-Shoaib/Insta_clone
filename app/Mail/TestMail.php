@@ -20,7 +20,6 @@ class TestMail extends Mailable
 //     {
 //         //
 //     }
-
 //     /**
 //      * Build the message.
 //      *

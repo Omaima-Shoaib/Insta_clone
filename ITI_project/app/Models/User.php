@@ -18,11 +18,12 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+      'name',
         'username',
         'phone',
         'email',
         'password',
+        'google_id',
         'image',
         'bio',
         'website',
@@ -46,4 +47,11 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    
+    //send email in queue
+      // public function sendEmailVerificationNotification()
+    // {
+    //   $this->notify(new VerifyEmailQueued);
+    // }
 }

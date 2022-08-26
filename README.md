@@ -1,16 +1,16 @@
 commands
 <br>
-npm install && run dev
+1- npm install && run dev
 <br>
-php artisan migrate
+2- php artisan migrate
 <br>
-php artisan db:seed
+3- php artisan db:seed
 <br>
-composer dump-autoload
+4- composer dump-autoload
 <br>
-php artisan queue:work
+5- php artisan queue:work
 <br>
-php artisan serve
+6- php artisan serve
 
 
 
