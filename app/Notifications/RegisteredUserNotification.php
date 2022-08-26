@@ -10,7 +10,6 @@ use Illuminate\Notifications\Notification;
 class RegisteredUserNotification extends Notification implements ShouldQueue
 {
     use Queueable;
-
     private $user;
 
     /**
