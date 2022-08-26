@@ -101,7 +101,7 @@
     .avatar{
         width: 25px;
         height: 25px;
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.345);
         border-radius: 100%;
         display: inline-flex;
         float: left;
@@ -135,7 +135,7 @@ display: block;
 
 @foreach($posts as $post)
 <div class="post_info">
-    <img class="avatar" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" >
+    <img class="avatar" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="." >
 
     <span class="user-name">
   <b>  {{  $post->user->name }} </b>
@@ -219,7 +219,7 @@ display: block;
     {{-- <img class="avatar" 
      src="https://gravatar.com/avatar/c919a0eca113d75bd4c37d36167d49c0/?s=240" > --}}
      @if(Auth::user()->image)
-     <img class="avatar" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" >
+     <img class="avatar" src="{{asset('/storage/avatars/'.Auth::user()->image)}}" alt="." >
  @endif
      {{-- this should be user avatar  --}}
 <b> {{$comment['author']}}</b>

@@ -127,6 +127,34 @@ class DatabaseSeeder extends Seeder
         ]);
         
         
+         $comment1=\App\Models\Comment::create([
+           'id'=>'1',
+           'post_id'=>'3',
+           'author'=>'lara Ali',
+           'text'=>'perfect',
+        ]);
+         $comment2=\App\Models\Comment::create([
+           'id'=>'2',
+           'post_id'=>'2',
+           'author'=>'Omaima Shoaib Ahmed',
+           'text'=>'This is lovely',
+        ]);
+        
+         $comment3=\App\Models\Comment::create([
+           'id'=>'3',
+           'post_id'=>'1',
+           'author'=>'Omaima Shoaib Ahmed',
+           'text'=>'This is lovely',
+        ]);
+        
+         $comment4=\App\Models\Comment::create([
+           'id'=>'4',
+           'post_id'=>'1',
+           'author'=>'lara Ali',
+           'text'=>'-_- -_- -_-',
+        ]);
+        
+        
         
         
         
