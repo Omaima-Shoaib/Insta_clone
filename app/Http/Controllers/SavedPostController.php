@@ -93,6 +93,8 @@ return view('savedposts.index',['posts'=>$posts,'savedposts'=>$savedposts]);
      */
     public function update(Request $request)
     {
+      $myurl=url()->previous();
+
         //this function will store the user_id and post_id in the saved_posts table
         // dd($request['post_id']);
         // dd($request->user()->id);
@@ -103,7 +105,7 @@ return view('savedposts.index',['posts'=>$posts,'savedposts'=>$savedposts]);
             'user_id'=>$user_id
         ]);
         $savedpost->save();
-        return redirect('posts');
+        return redirect($myurl);
     }
 
     /**
@@ -114,9 +116,10 @@ return view('savedposts.index',['posts'=>$posts,'savedposts'=>$savedposts]);
      */
     public function destroy($id)
     {
+        
 SavedPost::where('post_id',$id)->delete();
 
-return redirect('posts');
+return redirect('savedposts');
 
     }
 }

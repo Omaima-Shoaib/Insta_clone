@@ -40,6 +40,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+      $myurl=url()->previous();
       $user=Auth::user();
     $userid=Auth::id();
       $posts = Post::paginate(15);
@@ -61,7 +62,7 @@ class PostController extends Controller
       Image::create(['image'=>$data['image'],'post_id'=>$request['post_id']]);
                 }
             }
-        return redirect('posts');
+        return redirect($myurl);
 
     }
 
