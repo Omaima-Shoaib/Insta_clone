@@ -42,6 +42,7 @@
      <div style="margin:auto">
         <form  action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data" >
         @csrf
+      {{-- @if($errors->any()) --}}
         <div class="caption">
             caption <br>
             <input type="text" name='caption' id="caption">
@@ -50,12 +51,17 @@
 
                 <div class="container" >
                     <p style="text-align:center;font-size:65px;color:rgba(91, 91, 91, 0.475)"><b>+</b></p>
-                   <input type="file" name="images[]" id="" multiple style="margin-left: 20px">
+                  {{-- @error('image') --}}
+
+                    <input type="file" name="images[]" id="" multiple style="margin-left: 20px" required>
+                    
+                  {{-- @enderror --}}
                 </div>
 
         
                 <button type="submit"  class="btn">Add</button>
                 </div>
+                {{-- @endif --}}
         </form>
         </div> 
     </div> 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreatePostRequest;
 use App\Models\Comment;
 use App\Models\Image;
 use App\Models\Like;
@@ -39,7 +40,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { 
+        // validation can be done by creating  new request class 'CreatePostRequest'
+
+        //    $validatedData = $request->validate([
+        // 'image[]' => 'required']);
+        // $request -> all();
+
+
       $myurl=url()->previous();
       $user=Auth::user();
     $userid=Auth::id();

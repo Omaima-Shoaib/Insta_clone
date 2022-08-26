@@ -36,8 +36,10 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
+        $myurl=url()->previous();
 
         // dd($request['post_id']);
+        try{
         $post_id=$request['post_id'];
         $userid=Auth::id();
         $author=Auth::user()->name;
@@ -48,8 +50,10 @@ class CommentsController extends Controller
             'user_id'=>$userid,
         ]);
         $comment->save();
-        $myurl=url()->previous();
-               return redirect($myurl);
+               return redirect($myurl);}
+               catch(\Exception $e){
+                return redirect($myurl);
+               }
 
     }
 

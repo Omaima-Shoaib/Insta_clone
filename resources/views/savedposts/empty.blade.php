@@ -18,6 +18,9 @@
     </style>
 </head>
 <body>
+    @extends('dashboard')
+    @section('content')
     <p>Empty List :(</p>
+    @endsection
 </body>
 </html>

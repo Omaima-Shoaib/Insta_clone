@@ -66,7 +66,15 @@
     {{-- <td><p> {{ $savedpost['created_at'] }}</p></td> --}}
     <td id="tdright"><button type='submit'  class="viewbutton">
         <a href="{{ route('posts.show',['id'=>$post['post_id'],'viewpost'=>'viewpost']) }}"  style="color: #fa4106;text-decoration:solid">View Post</a></button></td>
-    @endforeach  
+    <td>   
+         <form action="{{ route('savedposts.destroy',['id'=>$post['post_id']]) }}" method="Post">
+            @csrf
+            @method('Delete')
+        <button type='submit' class="btn2">
+         Remove </button>
+        </form>
+    </td>
+        @endforeach  
  
     </div>
 </table>

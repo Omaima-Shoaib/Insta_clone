@@ -166,6 +166,8 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'image[]'=>'image is required'
+    ],
 
 ];
