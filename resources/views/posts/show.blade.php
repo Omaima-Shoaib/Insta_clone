@@ -135,6 +135,8 @@ display: block;
 
 @foreach($posts as $post)
 <div class="post_info">
+    <img class="avatar" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" >
+
     <span class="user-name">
   <b>  {{  $post->user->name }} </b>
     </span>

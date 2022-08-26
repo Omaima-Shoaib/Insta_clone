@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <style>
-        button{
-            border:none;background-color:#fa4106;border-radius:5px;width:80px;
+        table{
+            border-spacing: 30px;
+        }
+        .viewbutton{
+            border:none;
+            background-color:#fa4106;border-radius:5px;width:80px;
             height: 30px;
         }
         a{
             color: #fa4106;
             text-decoration:none;
+         
+
         }
         td{
             width: 500px;
-          /* background-color: rgba(199, 199, 199, 0.252) */
+          background-color: rgba(199, 199, 199, 0.108);
+        
           
           
         }
@@ -33,7 +40,6 @@
             border-bottom-right-radius: 15px;
         }
         img{
-            border-radius: 15px;
             width:150px;
         }
        
@@ -53,16 +59,16 @@
     @foreach($posts as $post )
 
   <tr>
-  
+  <div class="btn">
     <td id="tdleft">  {{  $post['caption'] }} </td>
     {{-- <td>  <img src='{{ Storage::disk('images')->url($image->image) }}' ></td> --}}
     {{-- {{ $post['post_id'] }} --}}
     {{-- <td><p> {{ $savedpost['created_at'] }}</p></td> --}}
-    <td id="tdright"><button type='submit' >
+    <td id="tdright"><button type='submit'  class="viewbutton">
         <a href="{{ route('posts.show',['id'=>$post['post_id'],'viewpost'=>'viewpost']) }}"  style="color: #fa4106;text-decoration:solid">View Post</a></button></td>
     @endforeach  
  
-    
+    </div>
 </table>
 @endsection
 </body>
