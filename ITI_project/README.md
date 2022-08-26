@@ -2,6 +2,9 @@ commands
 <br><br>
 npm install && run dev
 <br>
+<br><br>
+composer require laravel/ui --dev
+<br>
 php artisan migrate
 <br>
 php artisan db:seed
