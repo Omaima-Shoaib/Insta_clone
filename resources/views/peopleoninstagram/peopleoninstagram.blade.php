@@ -20,7 +20,7 @@
 
 @foreach($user as $item3)
 <div class="follwinglist" style="display:flex ;">
-<img class="image rounded-circle" src="{{asset('/storage/images/'.$item3->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
+<img class="image rounded-circle" src="{{asset('/avatars/'.$item3->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
 
 <div class="followship-username float-left" style="display:flexbox; ;">
    <a href="#" style="text-decoration: none ;"><h3> {{$item3->name}}</h3></a>
