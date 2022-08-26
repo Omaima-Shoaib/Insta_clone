@@ -10,7 +10,8 @@ class Post extends Model
     use HasFactory;
     protected $fillable=[
         'caption',
-        'user_id'
+        'user_id',
+        'id'
     ];
     public function images(){
         return $this->hasMany(Image::class);

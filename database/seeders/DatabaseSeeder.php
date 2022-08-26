@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         // ]);
         
         $user1=\App\Models\User::create([
+            'id'=>'1',
              'name' => 'yomna sherif',
              'email' => 'yomna222yomna@gmail.com',
              'username'=> 'yomna',
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
          ]);
 
          $user2=\App\Models\User::create([
+            'id'=>'2',
              'name' => 'lara Ali',
              'email' => 'lara222laraaaa@gmail.com',
              'username'=> 'lara',
@@ -43,6 +45,90 @@ class DatabaseSeeder extends Seeder
              'image'=>'avatar2.png',
 
          ]);
+         
+         $user3=\App\Models\User::create([
+            'id'=>'3',
+            'name' => 'Omaima Shoaib Ahmed ',
+            'email' => 'omaimashoaib@gmail.com',
+            'username'=> 'Omaima-Shoaib',
+            'phone'=> '01064079849',
+            'password'=>  Hash::make(value:90909090),
+            'image'=>'avatar2.png',
+
+        ]);
+         $post1=\App\Models\Post::create([
+           'id'=>'1',
+           'caption'=>"omaima's post",
+           'user_id'=>'1',
+
+        ]);
+         $post2=\App\Models\Post::create([
+           'id'=>'2',
+           'caption'=>"lara's post",
+           'user_id'=>'2',
+
+        ]);
+         $post3=\App\Models\Post::create([
+           'id'=>'3',
+           'caption'=>"yomna's post",
+           'user_id'=>'3',
+        ]);
+         $image=\App\Models\Image::create([
+           'id'=>'1',
+           'image'=>"posts/1UtRsphFPerjnBPFoDICpaOq2wJxcOotDUExI2nO.jpg",
+           'post_id'=>'1',
+        ]);
+         $image2=\App\Models\Image::create([
+           'id'=>'2',
+           'image'=>"posts/1UtRsphFPerjnBPFoDICpaOq2wJxcOotDUExI2nO.jpg",
+           'post_id'=>'2',
+        ]);
+         $image2=\App\Models\Image::create([
+           'id'=>'3',
+           'image'=>"posts/EMiTdF25muSautWWzsEoSilaAzIuxl5F9V5mijgl.jpg",
+           'post_id'=>'3',
+        ]);
+         $image3=\App\Models\Image::create([
+           'id'=>'4',
+           'image'=>"posts/1UtRsphFPerjnBPFoDICpaOq2wJxcOotDUExI2nO.jpg",
+           'post_id'=>'3',
+        ]);
+         $isavedpost=\App\Models\SavedPost::create([
+           'id'=>'1',
+           'post_id'=>'3',
+           'user_id'=>'1'
+        ]);
+         $savedpost2=\App\Models\SavedPost::create([
+           'id'=>'2',
+           'post_id'=>'1',
+           'user_id'=>'2'
+        ]);
+         $savedpost3=\App\Models\SavedPost::create([
+           'id'=>'3',
+           'post_id'=>'2',
+           'user_id'=>'2'
+        ]);
+         $savedpost4=\App\Models\SavedPost::create([
+           'id'=>'4',
+           'post_id'=>'3',
+           'user_id'=>'2'
+        ]);
+        
+         $savedpost4=\App\Models\Like::create([
+           'id'=>'1',
+           'post_id'=>'3',
+           'user_id'=>'1'
+        ]);
+        
+         $savedpost4=\App\Models\Like::create([
+           'id'=>'2',
+           'post_id'=>'3',
+           'user_id'=>'2'
+        ]);
+        
+        
+        
+        
         
         
 //         //following
