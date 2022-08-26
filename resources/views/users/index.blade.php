@@ -1,3 +1,15 @@
+<div>
+@if(session()->has('success'))
+    <div style=" border: 10px solid #b5e7a0;
+  padding: 15px;
+  background: #b5e7a0;
+  background-clip: border-box; 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: medium ; ">
+        {{ session()->get('success') }}
+    </div>
+@endif
+<div>
 <nav style="display:flex-box;float:right;">
 <a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
 <a href="{{ route('users.index') }}" >My profile</a>
@@ -36,9 +48,8 @@
                 </div> 
            
                 <div class="buttons">
-                  <!-- <a href="#">  <button class="btn btn-sm btn-outline-primary w-100">Edit Profile</button></a> -->
-                    <a href="{{route('users.edit')}}" class="btn btn-primary"><button>Edit Profile</button></a> 
-                    <button class="btn btn-sm btn-outline-primary w-100">Add post</button>
+                    <a href="{{route('users.edit')}}"><button>Edit Profile</button></a> 
+                    <button >Add post</button>
                 </div>
              
     </div>
