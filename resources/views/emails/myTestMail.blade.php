@@ -11,7 +11,9 @@
 </h2> -->
 <br>
 <h2>
+
     Thanks for using our application!
+    
 </h2>
 
 
