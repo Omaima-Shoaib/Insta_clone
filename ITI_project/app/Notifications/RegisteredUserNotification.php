@@ -43,10 +43,14 @@ class RegisteredUserNotification extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                     ->line(line:'HI, ' . $notifiable->name)
-                     ->line(line:'New user has registered!')
-                     ->line(line:'Email: ' . $this->user->email)
-                     ->line(line:'Thanks for using our application!') ;
+        ->line('welcome :')
+        ->line(line:'New user has registered!')
+        //->action('Email', url('/dashboard'))
+        ->line('Thank you for using our application!');
+                    //  ->line(line:'HI, ' . $notifiable->name)
+                    //  ->line(line:'New user has registered!')
+                    //  ->line(line:'Email: ' . $this->user->email)
+                    //  ->line(line:'Thanks for using our application!') ;
                     // ->line('The introduction to the notification.')
                     // ->action('Notification Action', url('/'))
                     // ->line('Thank you for using our application!');
