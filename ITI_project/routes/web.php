@@ -5,8 +5,7 @@ use App\HTTP\Controllers\ProfileController;
 use App\HTTP\Controllers\FollowerController;
 use App\HTTP\Controllers\FollowingController;
 use App\HTTP\Controllers\PeopleOnInstagramController;
-
-
+use App\Http\Controllers\GoogleAuthController;
 
 
 
@@ -50,5 +49,16 @@ Route::get('/peopleoninstagram',[PeopleOnInstagramController::class,'peopleonins
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth' , 'verified'])->name('dashboard');
+
+
+//send mail in queue
+// Route::get('/sendmail', [Controller::class , 'sendMails']);
+
+// Route::get('/mail', [RegisteredUserNotification::class , 'toMail']);
+
+//google socialite
+Route::get('auth/google', [GoogleAuthController::class , 'redirect'])->name('google-auth');
+Route::get('auth/google/call-back', [GoogleAuthController::class , 'callbackGoogle']);
+
 
 require __DIR__.'/auth.php';
