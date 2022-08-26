@@ -1,25 +1,29 @@
-<nav style="display:flex-box;float:right;">
-<a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
-<a href="{{ route('users.index') }}" >My profile</a>
-<form method="POST" action="{{ route('logout') }}">
-                            @csrf
+<div>
+@if(session()->has('success'))
+    <div style=" border: 10px solid #b5e7a0;
+  padding: 15px;
+  background: #b5e7a0;
+  background-clip: border-box; 
+  font-family: Arial, Helvetica, sans-serif; 
+  font-size: medium ; ">
+        {{ session()->get('success') }}
+    </div>
+@endif
+</div>
+@extends('layouts.navbar')
+@section('content')
 
-                            <a href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </a>
-                        </form>
 
-</nav>
 <div class="content ">
     <div class="img_btn_bio">
        
                 <div class="image">
                     <!-- <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"  width="155"  alt="Avatar" style="border-radius: 50%;"> -->
                     @if(Auth::user()->image)
-                        <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
-                    @endif
+                        
+                    <img class="image rounded-circle" src="{{Auth::user()->image}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
+                   
+                        @endif
                 </div>
                 <!-- <form enctype="multipart/form-data" action="{{ route('users.index') }}">
                 <label>update profile photo</label>
@@ -37,8 +41,8 @@
            
                 <div class="buttons">
                   <!-- <a href="#">  <button class="btn btn-sm btn-outline-primary w-100">Edit Profile</button></a> -->
-                    <a href="{{route('users.edit')}}" class="btn btn-primary"><button>Edit Profile</button></a> 
-                    <button class="btn btn-sm btn-outline-primary w-100">Add post</button>
+                    <a href="{{route('users.edit')}}" ><button>Edit Profile</button></a> 
+                    <button >Add post</button>
                 </div>
              
     </div>
@@ -55,7 +59,7 @@
                     
 
                     <div class="followers">
-                     <a href="{{route('followersdetails.followers')}}" data-target="#followers" data-toggle="tab" class="nav-link small text-uppercase  active" style="text-decoration:none ;"> <pre><span class="followersnb" style="font-family: Arial, Helvetica, sans-serif;">Followers  </span></pre></a>
+                     <a href="{{route('followersdetails.followers')}}" style="text-decoration:none ;"> <pre><span class="followersnb" style="font-family: Arial, Helvetica, sans-serif;">Followers  </span></pre></a>
                        <pre><span class="number2">  {{$followers->count()}}</span></pre>
   
                     </div>
@@ -124,3 +128,4 @@
     }
 
 </style>
+@endsection
