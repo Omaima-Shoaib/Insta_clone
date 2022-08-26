@@ -13,7 +13,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#" style="color:black">Instagram</a>
+      <a class="navbar-brand" href="#" style="color:black;">Instagram</a>
     </div>
     <ul class="nav navbar-nav">
    <li><a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a></li>
