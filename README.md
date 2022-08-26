@@ -41,7 +41,7 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Omaima Shoaib Ahmed
 1.User can add post(single/multiple images, caption)<br>
 2.Image is required while caption is optional<br>
-3.View post (author name, time created, user_avatar, caption, images, number of likes, savepost button, add comment box, post comments that include<br>
+3.View post (author name, time created, user_avatar, caption, images, number of likes, savepost button, add comment box, post comments that include
 user name, time comment is created and comment text .<br>
 4.User can display saved list 'only post caption is displayed' user can view and delete post from saved list.<br>
 ![welcom1](https://user-images.githubusercontent.com/102256485/186942941-f76eb5c4-0653-4f7a-92cd-e867494fdb92.jpg)
