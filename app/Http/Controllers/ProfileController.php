@@ -32,11 +32,38 @@ if(Auth::check()){
     }
 
     public function create(){
-        return view('users.create');
+        if (Auth::check()) {
+            $user_id = Auth::user()->id;
+            $profile = Profile::where('user_id', $user_id)->get();
+
+            if ($profile->count() > 0) {
+
+                return redirect()->route('profile.show', $profile->first()->id);
+
+            }
+            else {
+                return view('profile.create');
+            }
+        }
     }
 
     public function store(Request $request){
-        return redirect()->route('users.index');
+        $input = $request->all();
+
+
+        if ($request->file('image') != null) {
+            $path = $request->file('image')->store('public/images');
+            $input['image'] = basename($path);
+        }
+
+        $user = Auth::user();
+        $input['user_id'] = $user->id;
+        Profile::create($input);
+
+        return view('profile.show')->with([
+            'profile' => $user->profile,
+            'user' => $user
+        ]);
 
     }
     public function show($id){

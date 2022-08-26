@@ -39,7 +39,9 @@ Route::get('/users/{id}',[ProfileController::class,'show'])->name('users.show');
 
 Route::post('/users',[ProfileController::class,'store'])->name('users.store');
 Route::get('/users/edit',[ProfileController::class,'edit'])->name('users.edit');
-Route::get('/profile/{id}',[ProfileController::class,'show'])->name('profile.show');
+Route::resource('profile', ProfileController::class);
+// Route::get('/profile/{id}',[ProfileController::class,'show'])->name('profile.show');
+// Route::get('/profile/create',[ProfileController::class,'create'])->name('profile.create');
 Route::put('/users/update',[ProfileController::class,'update'])->name('users.update');
 Route::delete('/users/{id}',[ProfileController::class,'destroy'])->name('users.destroy');
 // Route::get('/users/followers',[ProfileController::class,'followers'])->name('users.followers');
