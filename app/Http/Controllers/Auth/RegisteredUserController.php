@@ -58,7 +58,8 @@ class RegisteredUserController extends Controller
         ]);
 
         //$users=User::where('id',1)->get();
-        $users=User::all();
+        $users=User::where('name',$user->name)->get();
+        //$users=User::all();
         Notification::send($users, new RegisteredUserNotification($users));
         // FacadesNotification::send($users , new RegisteredUserNotification($user));
 
