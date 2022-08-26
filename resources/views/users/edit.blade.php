@@ -27,7 +27,7 @@
 
 <div class="container">
   <h2>Update Profile</h2>
-  <form method="POST" action="{{ route('users.update') }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('users.update',$users['id']) }}" enctype="multipart/form-data">
         @method('PUT')
             @csrf
     <div class="form-group">

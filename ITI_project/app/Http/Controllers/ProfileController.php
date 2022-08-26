@@ -43,7 +43,18 @@ class ProfileController extends Controller
     public function show()
     {
 
-        return view('users.edit'); //show is used to display edit.blade
+        if (Auth::check()) {
+            $followers = followship::where('user1_id', '!=', auth()->user()->id)->get();
+            $following = followship::where('user1_id', auth()->user()->id)->get();
+            //$posts=Post::where('user_id','!=',auth()->user()->id)->get();
+            $user = User::get(); //we can use it to count all users in db
+            return view('profile.show', compact("followers", "following", "user"/*,"posts","user"*/));
+        }
+        // $user=auth()->user();
+        // $data['user']=$user;
+        else {
+            return view('profile.show');
+        }
     }
     // public function showfollowers(){
     //     return view('users.followers');//to show followers view

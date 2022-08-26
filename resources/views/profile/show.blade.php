@@ -22,12 +22,33 @@
         </div>
         <br>
         <div>
-            <h2 class="mb-0 mt-0">Name : <span>{{Auth::user()->name}}</span></h2>
-            <p><span class="profile-real-name">Gender : </span>{{$profile["gender"]}}</p>
-            <p><span class="profile-real-name">Bio :{{$profile["bio"]}} </span></p>
-            <p><span class="profile-real-name">Webiste :{{$profile["website"]}} </span></p>
+            <h2>Name: {{Auth::user()->name}}</h2>
+            <p>Gender: {{Auth::user()->gender}}</p>
+            <p>Bio: {{Auth::user()->bio}} </p>
+            <p>Website: {{Auth::user()->website}}</p>
+            <div class="followers">
+                <a href="{{route('followersdetails.followers')}}" style="text-decoration:none ;">
+                    <pre><span class="followersnb" style="font-family: Arial, Helvetica, sans-serif;">Followers: {{$followers->count()}}</span></pre>
+                </a>
+            </div>
+
+
+            <div class="following">
+                <a href="{{route('followingdetails.following')}}" style="text-decoration:none ;">
+                    <pre><span class="followingnb"style="font-family: Arial, Helvetica, sans-serif;">Following: {{$following->count()}}</span></pre>
+                </a>
+            </div>
+
+
         </div>
-        <h2>Posts:</h2>
+        <br>
+
+        <div class="buttons">
+            <a href="{{route('users.edit',$users['id'])}}" class="btn btn-primary">Edit Profile</a>
+            <a href="{{route('posts.create')}}" class="btn btn-info">Add Post</a>
+        </div>
+        <br>
+        <h2>Posts: {{$profile['user']['posts']->count()}}</h2>
         <div class="row pt-5">
             @foreach($profile['user']['posts'] as $post)
             <div class="col-4 pb-4">
