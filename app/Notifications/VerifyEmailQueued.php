@@ -21,7 +21,6 @@ class VerifyEmailQueued extends VerifyEmail implements ShouldQueue
     {
         //
     }
-
     /**
      * Get the notification's delivery channels.
      *
