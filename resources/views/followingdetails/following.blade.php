@@ -5,7 +5,7 @@
 @if($following->count() >0)
 @foreach($following as $item2)
 <div class="follwinglist" style="display:flex ;">
-<img class="image rounded-circle" src="{{asset('/avatars/'.$item2->user2->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
+<img class="image rounded-circle" src="{{asset('/avatars/'.$item2->user2->image)}}" alt="profile_image" style="width: 90px;height: 90px; padding: 10px; margin: 0px;border-radius: 50%; ">
 
 <div class="followship-username float-left" style="display:flexbox; margin-left:30px; ">
   <a href="#" style=" text-decoration: none ;font-size:20px;"> <h3> {{$item2->user2->name}}</h3> </a>
