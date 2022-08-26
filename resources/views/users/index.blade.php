@@ -1,5 +1,3 @@
-@extends('dashboard')
-@section('content')
 <nav style="display:flex-box;float:right;">
 <a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
 <a href="{{ route('users.index') }}" >My profile</a>
@@ -20,7 +18,7 @@
                 <div class="image">
                     <!-- <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"  width="155"  alt="Avatar" style="border-radius: 50%;"> -->
                     @if(Auth::user()->image)
-                        <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
+                        <img class="image rounded-circle" src="{{Auth::user()->image}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
                     @endif
                 </div>
                 <!-- <form enctype="multipart/form-data" action="{{ route('users.index') }}">
