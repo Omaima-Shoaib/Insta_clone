@@ -82,13 +82,14 @@ class PostController extends Controller
      */
     public function show(Post $post,Image $image,Request $request)
     {
+        try{
        $user= Auth::user();
         // dd(Auth::User());
         $posts=Post::where('id',$request['id'])->get();
         $post=Post::where('id',$request['id'])->first();
         $myuser=User::where('id',$post['user_id'])->first();
         $countposts=Post::where('id',$request['id'])->count();
-        if($countposts>0){
+    
         $images=Image::where('post_id',$request['id'])->get();
         // $comments=Comment::paginate(4);
         $comments=Comment::where('post_id',$request['id'])->paginate(4);
@@ -97,9 +98,9 @@ class PostController extends Controller
         ,'comments'=>$comments,'likes'=>$likes,'myuser'=>$myuser]
    );
         // dd($images);
-    }
-    else return "empty post";
-
+    }catch(\Exception $e){
+return view('savedposts.empty');
+}
     }
 
     /**
