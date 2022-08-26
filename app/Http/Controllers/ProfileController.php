@@ -3,6 +3,7 @@ namespace App\HTTP\Controllers;
 
 use App\Http\Middleware\Authenticate;
 use App\Models\followship;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 //use Auth;
@@ -17,9 +18,9 @@ class ProfileController extends Controller{
 if(Auth::check()){
     $followers=followship::where('user1_id','!=',auth()->user()->id)->get();
     $following=followship::where('user1_id',auth()->user()->id)->get();
-    //$posts=Post::where('user_id','!=',auth()->user()->id)->get();
+    $posts=Post::where('user_id','!=',auth()->user()->id)->get();
      $user=User::get();//we can use it to count all users in db
-     return view('users.index',compact("followers","following","user"/*,"posts","user"*/));
+     return view('users.index',compact("followers","following","user","posts","user"));
 }
         // $user=auth()->user();
         // $data['user']=$user;
