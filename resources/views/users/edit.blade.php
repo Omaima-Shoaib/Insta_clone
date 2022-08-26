@@ -32,22 +32,22 @@
             @csrf
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name" name="name" value="{{Auth::user()->name}}">
+      <input type="text" class="form-control" id="name" name="name" value="{{Auth::user()->name}}" required>
     </div>
 
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" class="form-control" id="username" name="username" value="{{Auth::user()->username}}">
+      <input type="text" class="form-control" id="username" name="username" value="{{Auth::user()->username}}" required>
     </div>
 
     <div class="form-group">
       <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" name="email" value="{{Auth::user()->email}}">
+      <input type="email" class="form-control" id="email" name="email" value="{{Auth::user()->email}}" required>
     </div>
 
     <div class="form-group">
       <label for="phone">Phone</label>
-      <input type="tel" class="form-control" id="phone" name="phone" value="{{Auth::user()->phone}}">
+      <input type="tel" class="form-control" id="phone" name="phone" value="{{Auth::user()->phone}}" required>
     </div>
 
     <div class="form-group">
@@ -62,13 +62,13 @@
     <div class="form-group">
       <label for="image">Update Profile Photo</label>
       <input type="file" class="form-control" id="image" name="image" value="{{Auth::user()->image}}">
-      <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
+      <img class="image rounded-circle" src="{{Auth::user()->image}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
 
     </div>
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" value="{{Auth::user()->password}}">
+      <input type="password" class="form-control" id="password" name="password" value="{{Auth::user()->password}}" required>
     </div>
     
     <button type="submit" class="btn btn-primary">Update</button>
