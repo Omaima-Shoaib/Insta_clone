@@ -2,6 +2,7 @@
 namespace App\HTTP\Controllers;
 
 use App\Http\Middleware\Authenticate;
+use App\Models\Profile;
 use App\Models\followship;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,13 +38,10 @@ if(Auth::check()){
         return redirect()->route('users.index');
 
     }
-    public function show(){
-        
-        return view('users.edit');//show is used to display edit.blade
+    public function show($id){
+        $profile = Profile::find($id);
+        return view('profile.show')->with(['profile' => $profile]);
     }
-    // public function showfollowers(){
-    //     return view('users.followers');//to show followers view
-    // }
    
    
     public function edit(){

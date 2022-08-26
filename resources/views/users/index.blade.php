@@ -1,3 +1,4 @@
+
 <nav style="display:flex-box;float:right;">
 <a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
 <a href="{{ route('users.index') }}" >My profile</a>
