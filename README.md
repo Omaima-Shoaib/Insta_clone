@@ -39,8 +39,13 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 ## Omaima Shoaib Ahmed
-
+1.User can add post(single/multiple images, caption)
+2.Image is required while caption is optional
+3.View post (author name, time created, user_avatar, caption, images, number of likes, savepost button, add comment box, post comments that include
+user name, time comment is created and comment text .
+4.User can display saved list 'only post caption is displayed' user can view and delete post from saved list.
 ![welcom1](https://user-images.githubusercontent.com/102256485/186942941-f76eb5c4-0653-4f7a-92cd-e867494fdb92.jpg)
 ![create1](https://user-images.githubusercontent.com/102256485/186943115-b62aee27-ea2d-4bc5-ac71-641a5f737526.jpg)
 ![view_post1](https://user-images.githubusercontent.com/102256485/186943067-a4ea332f-627c-4e0d-9dd9-d5ccece08c33.jpg)
 ![saved_posts1](https://user-images.githubusercontent.com/102256485/186943163-8e270381-c020-4b0c-96da-7ad7142183b5.jpg)
+![emptylist](https://user-images.githubusercontent.com/102256485/186944844-fa92eed7-9f33-4549-b51d-5e75e4eb7772.jpg)
