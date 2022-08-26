@@ -48,19 +48,24 @@
             <a href="{{route('posts.create')}}" class="btn btn-info">Add Post</a>
         </div>
         <br>
-        <h2>Posts: {{$profile['user']['posts']->count()}}</h2>
-        <div class="row pt-5">
-            @foreach($profile['user']['posts'] as $post)
-            <div class="col-4 pb-4">
-                <a href="{{route('posts.show' ,$post['id'])}}">
-                    <img src="{{Storage::disk('public')->url('/images//'.$post->images[0]->url)}}" alt="{{$post->caption}}" width="100%" height="100%"></a>
+        <div class="flex ">
+            <h2>Posts: {{$profile['user']['posts']->count()}}</h2>
 
-                @if( $profile['user']->id == Auth::id() )
+            <div class="row pt-5">
+                @foreach($profile['user']['posts'] as $post)
+                <div class="col-4 pb-4">
+                    <a href="{{route('posts.show' ,$post['id'])}}">
+                        <img src="{{Storage::disk('public')->url('/images//'.$post->images[0]->url)}}" alt="{{$post->caption}}" width="100%" height="100%"></a>
 
-
-                @endif
+                    
+                </div>
+                @endforeach
             </div>
-            @endforeach
+            <h2>Saved Posts: {{$savedposts->count()}}</h2>
+            <div>
+                <br>
+               <a href="{{route('savedposts.index')}}" class="btn btn-primary">Saved Posts</a>
+            </div>
         </div>
     </div>
     @endsection
