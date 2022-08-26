@@ -9,21 +9,13 @@
         {{ session()->get('success') }}
     </div>
 @endif
-<div>
-<nav style="display:flex-box;float:right;">
-<a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
-<a href="{{ route('users.index') }}" >My profile</a>
-<form method="POST" action="{{ route('logout') }}">
-                            @csrf
+</div>
 
-                            <a href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </a>
-                        </form>
 
-</nav>
+@extends('layouts.navbar')
+@section('content')
+
+
 <div class="content ">
     <div class="img_btn_bio">
        
@@ -135,3 +127,5 @@
     }
 
 </style>
+
+@endsection
