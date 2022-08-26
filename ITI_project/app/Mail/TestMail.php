@@ -32,3 +32,4 @@ class TestMail extends Mailable
         return $this->subject("Mail From Laravel Project")->view('emails.myTestMail');
     }
 }
+
