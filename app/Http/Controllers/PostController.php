@@ -40,7 +40,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    { 
+    {
         // validation can be done by creating  new request class 'CreatePostRequest'
 
         //    $validatedData = $request->validate([
@@ -48,30 +48,29 @@ class PostController extends Controller
         // $request -> all();
 
 
-      $myurl=url()->previous();
-      $user=Auth::user();
-    $userid=Auth::id();
-      $posts = Post::paginate(15);
-      $post=new Post([
-        'caption'=>$request->caption,
-        'user_id'=>$userid,
-    ]);
-     $post->save();
-    //$user->posts()->create(['caption'=>$request['caption']]);
+        $myurl = url()->previous();
+        $user = Auth::user();
+        $userid = Auth::id();
+        $posts = Post::paginate(15);
+        $post = new Post([
+            'caption' => $request->caption,
+            'user_id' => $userid,
+        ]);
+        $post->save();
+        //$user->posts()->create(['caption'=>$request['caption']]);
 
-        if($request->hasFile('images')){
-                $files=$request->file('images');
-               //dd($userid);
-                foreach($files as $file){
-         $data['image']=   $file ->store('posts','images');
-    //    $data['image']= $request->file('image')->store('posts','images');
-         
-            $request['post_id']=$post->id;
-      Image::create(['image'=>$data['image'],'post_id'=>$request['post_id']]);
-                }
+        if ($request->hasFile('images')) {
+            $files = $request->file('images');
+            //dd($userid);
+            foreach ($files as $file) {
+                $data['image'] =   $file->store('posts', 'images');
+                //    $data['image']= $request->file('image')->store('posts','images');
+
+                $request['post_id'] = $post->id;
+                Image::create(['image' => $data['image'], 'post_id' => $request['post_id']]);
             }
+        }
         return redirect($myurl);
-
     }
 
     /**
@@ -80,27 +79,30 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post,Image $image,Request $request)
+    public function show(Post $post, Image $image, Request $request)
     {
-        try{
-       $user= Auth::user();
-        // dd(Auth::User());
-        $posts=Post::where('id',$request['id'])->get();
-        $post=Post::where('id',$request['id'])->first();
-        $myuser=User::where('id',$post['user_id'])->first();
-        $countposts=Post::where('id',$request['id'])->count();
-    
-        $images=Image::where('post_id',$request['id'])->get();
-        // $comments=Comment::paginate(4);
-        $comments=Comment::where('post_id',$request['id'])->paginate(4);
-        $likes=Like::where('post_id',$request['id'])->count();
-        return view('posts.show',['id'=>$request['id'],'posts'=>$posts,'post'=>$post,'images'=>$images
-        ,'comments'=>$comments,'likes'=>$likes,'myuser'=>$myuser]
-   );
-        // dd($images);
-    }catch(\Exception $e){
-return view('savedposts.empty');
-}
+        try {
+            $user = Auth::user();
+            // dd(Auth::User());
+            $posts = Post::where('id', $request['id'])->get();
+            $post = Post::where('id', $request['id'])->first();
+            $myuser = User::where('id', $post['user_id'])->first();
+            $countposts = Post::where('id', $request['id'])->count();
+
+            $images = Image::where('post_id', $request['id'])->get();
+            // $comments=Comment::paginate(4);
+            $comments = Comment::where('post_id', $request['id'])->paginate(4);
+            $likes = Like::where('post_id', $request['id'])->count();
+            return view(
+                'posts.show',
+                [
+                    'id' => $request['id'], 'posts' => $posts, 'post' => $post, 'images' => $images, 'comments' => $comments, 'likes' => $likes, 'myuser' => $myuser
+                ]
+            );
+            // dd($images);
+        } catch (\Exception $e) {
+            return view('savedposts.empty');
+        }
     }
 
     /**

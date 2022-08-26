@@ -156,7 +156,7 @@ display: block;
 <div>
 @foreach($images as $image)
 
-<img src='{{ Storage::disk('images')->url($image->image) }}' ><br>
+<img src='{{ Storage::disk("images")->url($image->image) }}' ><br>
 <div class="likes">
 </div>
 @endforeach
