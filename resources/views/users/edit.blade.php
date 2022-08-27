@@ -1,4 +1,5 @@
-
+@extends('layouts.navbar')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +12,9 @@
 </head>
 <body>
 
-@extends('layouts.navbar')
-@section('content')
-
 <div class="container">
   <h2>Update Profile</h2>
-  <form method="POST" action="{{ route('users.update',$users['id']) }}" enctype="multipart/form-data">
+  <form method="POST" action="{{ route('users.update') }}" enctype="multipart/form-data">
         @method('PUT')
             @csrf
     <div class="form-group">
@@ -57,7 +55,7 @@
 
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" name="password" value="{{Auth::user()->password}}" required>
+      <input type="password" class="form-control" id="password" name="password" value="{{Auth::user()->password}}"required>
     </div>
     
     <button type="submit" class="btn btn-primary">Update</button>
@@ -66,8 +64,4 @@
 
 </body>
 </html>
-
 @endsection
-
-
-        
