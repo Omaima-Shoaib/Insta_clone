@@ -73,8 +73,46 @@ user name, time comment is created and comment text .<br>
 ![queue-notification](https://user-images.githubusercontent.com/102617431/187005530-8186d956-fbe0-42ca-9847-a3a10f5e867a.JPG)
 
 
-
-
-
-
-
+<br><br>
+##Yomna Sherif Ahmed
+1.user have a profile
+<br>
+2.user can add image,bio and website to his profile through update button
+<br>
+3.user can update update his profile like name,username,phone,email,website,bio,avatar and password
+<br>
+4.name,username,password,phone and email are required
+<br>
+5.website and bio are nullable
+<br>
+6.image is shown in index after updating user profile
+<br>
+7.updated image is shown in user's profile
+<br>
+8.website and bio are show after update because default is null
+<br>
+9.you can view followers list ,following list and people on instagram with button showing their status , it is shown in follower list a button to show if you are following him or if not then follow and remove link(link not working just a view)  
+<br>
+10.if you don't have followers than it is shown as a message
+<br>
+11.in following list ,the following button is show if you are following someone.
+<br>
+12.the following and follow button are shown with profile image and name
+<br>
+13.people on instgram list with follow,following status button
+<br>
+14.you can count posts,followers and following
+<br>
+15.you can use seed to create accounts 
+<br>
+![index](https://user-images.githubusercontent.com/102757176/187006814-5ae3c121-7d8f-4c99-a0e1-c39b44c942e9.png)
+![update1](https://user-images.githubusercontent.com/102757176/187006830-ccdd0fa6-7c74-4522-8cef-681f3d9343e2.png)
+![update2](https://user-images.githubusercontent.com/102757176/187006836-3a9de081-d33e-47f3-b0f6-0ebde0da2406.png)
+![update3](https://user-images.githubusercontent.com/102757176/187006841-aa276e77-65d3-4992-84a8-725a2b4b032b.png)
+![update4](https://user-images.githubusercontent.com/102757176/187006846-81133ace-13a4-40ce-bb52-d23d51995e82.png)
+![Successful update](https://user-images.githubusercontent.com/102757176/187006851-3afb0412-fb28-48c7-b6f2-df39a6e1b1ec.png)
+![peopleoninstagram](https://user-images.githubusercontent.com/102757176/187006873-77eba4de-5c10-4f53-a340-af05dafc8c34.png)
+![peopleoninstagram2](https://user-images.githubusercontent.com/102757176/187006904-d4dba512-df68-48d8-868c-1e090f14fb0f.png)
+![postscount](https://user-images.githubusercontent.com/102757176/187006913-b4efca7a-24b1-4fc6-b057-3787c914c9eb.png)
+![followers](https://user-images.githubusercontent.com/102757176/187006917-98180e43-52f6-42c2-9ad5-28f3a08320fc.png)
+![following](https://user-images.githubusercontent.com/102757176/187006921-ee8a1586-db53-4559-9fbd-dc444c88ece7.png)
