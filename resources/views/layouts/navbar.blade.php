@@ -10,15 +10,19 @@
 </head>
 <body>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default" >
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#" style="color:black;">Instagram</a>
     </div>
     <ul class="nav navbar-nav">
-   <li><a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a></li>
   <li><a href="{{ route('users.index') }}" >My profile</a></li>
-  <form method="POST" action="{{ route('logout') }}" style="float:right ; margin-left:900px; margin-top:14px;">
+  <li><a href="{{ route('savedposts.index') }}" >Saved Posts</a></li>
+  <li><a href="{{ route('posts.create') }}">New Post</a></li>
+  <li><a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a></li>
+
+
+  <form method="POST" action="{{ route('logout') }}" style="float:right ; margin-left:700px; margin-top:14px;">
                             @csrf
 
                       <li>    <a href="route('logout')" style="text-decoration:none ;"
