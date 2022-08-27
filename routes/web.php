@@ -3,6 +3,7 @@
 use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SavedPostController;
+use App\Http\Controllers\TagController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\HTTP\Controllers\ProfileController;
@@ -88,6 +89,10 @@ Route::get('/search', [PostController::class , 'search'])->name('search');
 //send mail in queue
 // Route::get('/sendmail', [Controller::class , 'sendMails']);
 // Route::get('/mail', [RegisteredUserNotification::class , 'toMail']);
+
+
+
+Route::get('/tags/{id}',[TagController::class  , 'index']) ;
 
 
 //google socialite
