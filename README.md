@@ -1,17 +1,21 @@
 commands
 <br>
-1- npm install && run dev
+1- npm install 
 <br>
-2- php artisan migrate
+2- npm run dev
 <br>
-3- php artisan db:seed
+3- php artisan migrate
 <br>
-4-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); 'in database' <br>
-5- composer dump-autoload
+4-php artisan migrate:fresh
 <br>
-6- php artisan queue:work
+5- php artisan db:seed
 <br>
-7- php artisan serve
+6-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); 'in database' <br>
+7- composer dump-autoload
+<br>
+8- php artisan queue:work
+<br>
+9- php artisan serve
 
 
 
