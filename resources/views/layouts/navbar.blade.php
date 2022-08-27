@@ -10,7 +10,12 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 <nav class="navbar navbar-default" >
+=======
+<nav class="navbar navbar-default">
+  
+>>>>>>> 6c38d67 (search)
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#" style="color:black;">Instagram</a>
@@ -34,6 +39,7 @@
 
     </ul>
   </div>
+  
 </nav>
 @section('content')
   @show

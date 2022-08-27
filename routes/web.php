@@ -81,6 +81,7 @@ Route ::delete('/savedposts/{id}',[SavedPostController::class,'destroy'])->where
 Route ::post('/comment',[CommentsController::class,'store'])->name('comments.store')->middleware(['auth']);
 Route ::post('/like',[LikeController::class,'store'])->name('likes.store')->middleware(['auth']);
 
+Route::get('/search', [PostController::class , 'search'])->name('search');
 
 
 
