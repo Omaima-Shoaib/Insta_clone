@@ -113,6 +113,5 @@ user name, time comment is created and comment text .<br>
 ![Successful update](https://user-images.githubusercontent.com/102757176/187006851-3afb0412-fb28-48c7-b6f2-df39a6e1b1ec.png)
 ![peopleoninstagram](https://user-images.githubusercontent.com/102757176/187006873-77eba4de-5c10-4f53-a340-af05dafc8c34.png)
 ![peopleoninstagram2](https://user-images.githubusercontent.com/102757176/187006904-d4dba512-df68-48d8-868c-1e090f14fb0f.png)
-![postscount](https://user-images.githubusercontent.com/102757176/187006913-b4efca7a-24b1-4fc6-b057-3787c914c9eb.png)
 ![followers](https://user-images.githubusercontent.com/102757176/187006917-98180e43-52f6-42c2-9ad5-28f3a08320fc.png)
 ![following](https://user-images.githubusercontent.com/102757176/187006921-ee8a1586-db53-4559-9fbd-dc444c88ece7.png)
