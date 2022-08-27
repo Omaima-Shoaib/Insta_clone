@@ -6,7 +6,7 @@ commands
 <br>
 3- php artisan db:seed
 <br>
-4-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); <br>
+4-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); 'in database' <br>
 5- composer dump-autoload
 <br>
 6- php artisan queue:work
