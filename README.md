@@ -10,7 +10,7 @@ commands
 <br>
 5- php artisan db:seed
 <br>
-6-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); 'in database' <br>
+6-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); 'in database to allow user to make single like or dislike for post' <br>
 7- composer dump-autoload
 <br>
 8- php artisan queue:work
