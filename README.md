@@ -74,9 +74,8 @@ user name, time comment is created and comment text .<br>
 
 
 <br><br>
-##Yomna Sherif Ahmed
-1.user have a profile
-<br>
+## Yomna Sherif  
+1.user have a profile<br>
 2.user can add image,bio and website to his profile through update button
 <br>
 3.user can update update his profile like name,username,phone,email,website,bio,avatar and password
