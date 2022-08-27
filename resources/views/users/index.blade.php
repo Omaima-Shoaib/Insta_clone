@@ -10,8 +10,6 @@
     </div>
 @endif
 </div>
-
-
 @extends('layouts.navbar')
 @section('content')
 
@@ -22,8 +20,10 @@
                 <div class="image">
                     <!-- <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"  width="155"  alt="Avatar" style="border-radius: 50%;"> -->
                     @if(Auth::user()->image)
-                        <img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->image)}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
-                    @endif
+                        
+                    <img class="image rounded-circle" src="{{Auth::user()->image}}" alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px;border-radius: 50%; ">
+                   
+                        @endif
                 </div>
                 <!-- <form enctype="multipart/form-data" action="{{ route('users.index') }}">
                 <label>update profile photo</label>
@@ -40,8 +40,9 @@
                 </div> 
            
                 <div class="buttons">
-                    <a href="{{route('users.edit')}}"><button>Edit Profile</button></a> 
-                    <button >Add post</button>
+                  <!-- <a href="#">  <button class="btn btn-sm btn-outline-primary w-100">Edit Profile</button></a> -->
+                    <a href="{{route('users.edit')}}" ><button>Edit Profile</button></a> 
+                   <a href="{{ route('posts.create') }}"> <button >Add post</button></a>
                 </div>
              
     </div>
@@ -58,7 +59,7 @@
                     
 
                     <div class="followers">
-                     <a href="{{route('followersdetails.followers')}}" data-target="#followers" data-toggle="tab" class="nav-link small text-uppercase  active" style="text-decoration:none ;"> <pre><span class="followersnb" style="font-family: Arial, Helvetica, sans-serif;">Followers  </span></pre></a>
+                     <a href="{{route('followersdetails.followers')}}" style="text-decoration:none ;"> <pre><span class="followersnb" style="font-family: Arial, Helvetica, sans-serif;">Followers  </span></pre></a>
                        <pre><span class="number2">  {{$followers->count()}}</span></pre>
   
                     </div>
@@ -79,12 +80,10 @@
     {
         background-color:white;
     }   
-
     .content
     {
     display: flex;  
     }
-
     .info
     {
     margin-left: 30px;
@@ -97,7 +96,6 @@
     margin-right:15px;
     
     }
-
     .posts
     {
   font-size:20px;
@@ -125,7 +123,5 @@
     {
         font-weight:500;
     }
-
 </style>
-
 @endsection
