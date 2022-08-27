@@ -10,20 +10,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-<nav style="display:flex-box;float:right;">
-<a href="{{ route('peopleoninstagram.peopleoninstagram') }}" >People on Instagram</a>
-<a href="{{ route('users.index') }}" >My profile</a>
-<form method="POST" action="{{ route('logout') }}">
-                            @csrf
 
-                            <a href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </a>
-                        </form>
-
-</nav>
+@extends('layouts.navbar')
+@section('content')
 
 <div class="container">
   <h2>Update Profile</h2>
@@ -77,5 +66,8 @@
 
 </body>
 </html>
+
+@endsection
+
 
         
