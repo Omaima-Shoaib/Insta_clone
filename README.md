@@ -56,12 +56,12 @@ user name, time comment is created and comment text .<br>
 
 <br><br>
 ## Aya Ibrahim 
-1.User can Login and Sign up by laravel breeze.<br>
-2.We send verify message to user using Mailtrap to login in website (hint: to my mailtrap to verify user email). <br>
-3.User can also login with his google account and it wil send verify message. <br>
-4.We will send notification when registered to website.<br>
-5- If you forget your password , you will receive resent message and you can change it. <br>
-6- User will receive welcome notification to his mail after register (using php artisan queue) (hint: to my mailtrap to user email). <br>
+1. User can Login and Sign up by laravel breeze.<br>
+2. We send verify message to user using Mailtrap to login in website (hint: to my mailtrap to verify user email). <br>
+3. User can also login with his google account and it wil send verify message. <br>
+4. We will send notification when registered to website.<br>
+5. If you forget your password , you will receive resent message and you can change it. <br>
+6. User will receive welcome notification to his mail after register (using php artisan queue) (hint: to my mailtrap to user email). <br>
 ![login](https://user-images.githubusercontent.com/102617431/187003036-f3122298-5026-41bc-bbfc-094fd5cab5e3.JPG)
 ![signup_with_google_account](https://user-images.githubusercontent.com/102617431/187003144-64ae629e-cdb8-4325-806d-2277c4d82582.JPG)
 ![sign_up](https://user-images.githubusercontent.com/102617431/187003513-c473ce6a-19d1-4fc0-bb9f-90e0750dd1c9.JPG)
