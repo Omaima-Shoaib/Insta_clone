@@ -146,5 +146,5 @@ if(Auth::check()){
     }
     // public function followers(){
     //     return view('users.followers');
-    //}
+    // }
     }
