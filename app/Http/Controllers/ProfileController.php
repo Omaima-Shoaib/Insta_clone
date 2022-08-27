@@ -1,13 +1,10 @@
 <?php
-
 namespace App\HTTP\Controllers;
 
 use App\Http\Middleware\Authenticate;
-use App\Models\Profile;
 use App\Models\followship;
-use App\Models\SavedPost;
-use App\Models\Post;
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Http\Request;
 //use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
@@ -15,90 +12,50 @@ use Illuminate\Support\Facades\Auth;
 
 use Image;
 
-class ProfileController extends Controller
-{
+class ProfileController extends Controller{
 
-    public function index()
-    {
-        if (Auth::check()) {
-            $followers = followship::where('user1_id', '!=', auth()->user()->id)->get();
-            $following = followship::where('user1_id', auth()->user()->id)->get();
-            $savedposts= SavedPost::where('user_id','=', auth()->user()->id)->get();
-            $posts = Post::where('user_id', '!=', auth()->user()->id)->get();
-            $user = User::get(); //we can use it to count all users in db
-            return view('profile.show', compact("followers", "following", "user", "posts", "user","savedposts"));
-        }
+    public function index(){
+if(Auth::check()){
+    $followers=followship::where('user1_id','!=',auth()->user()->id)->get();
+    $following=followship::where('user1_id',auth()->user()->id)->get();
+    $posts=Post::where('user_id','!=',auth()->user()->id)->get();
+     $user=User::get();//we can use it to count all users in db
+     return view('users.index',compact("followers","following","user","posts"/*,"user"*/));
+}
         // $user=auth()->user();
         // $data['user']=$user;
-        else {
+        else{
             return view('users.index');
+
         }
     }
 
-    public function create()
-    {
-        if (Auth::check()) {
-            $user_id = Auth::user()->id;
-            $profile = Profile::where('user_id', $user_id)->get();
-
-            if ($profile->count() > 0) {
-
-                return redirect()->route('profile.show', $profile->first()->id);
-            } else {
-                return view('profile.create');
-            }
-        }
+    public function create(){
+        return view('users.create');
     }
 
-    public function store(Request $request)
-    {
-        $input = $request->all();
+    public function store(Request $request){
+        return redirect()->route('users.index');
 
-
-        if ($request->file('image') != null) {
-            $path = $request->file('image')->store('public/images');
-            $input['image'] = basename($path);
-        }
-
-        $user = Auth::user();
-        $input['user_id'] = $user->id;
-        Profile::create($input);
-
-        return view('profile.show')->with([
-            'profile' => $user->profile,
-            'user' => $user
-        ]);
     }
-    public function show($id)
-    {
-        if (Auth::check()) {
-            $followers = followship::where('user1_id', '!=', auth()->user()->id)->get();
-            $following = followship::where('user1_id', auth()->user()->id)->get();
-            $savedposts= SavedPost::where('user_id','=', auth()->user()->id)->get();
-            $posts = Post::where('user_id', '!=', auth()->user()->id)->get();
-            $user = User::get();
-            $users = User::find($id);
-            $profile = Profile::find($id);
-            return view('profile.show', compact("followers", "following", "user", "posts", "users", 'profile','savedposts'));
-        }
-        // $user=auth()->user();
-        // $data['user']=$user;
-        else {
-            $profile = Profile::find($id);
-            return view('profile.show')->with(['profile' => $profile]);
-        }
+    public function show(){
+        
+        return view('users.edit');//show is used to display edit.blade
+    }
+    // public function showfollowers(){
+    //     return view('users.followers');//to show followers view
+    // }
+   
+   
+    public function edit(){
+        $user=auth()->user();
+        $data['user']=$user;
+        return redirect()->route('users.index',$data);
+     
     }
 
-
-    public function edit($id)
-    {
-        $user = User::find($id);
-        return view('users.edit')->with(['users' => $user]);
-    }
-
-    public function update(Request $request,$id)
-    {
-        $user = auth()->user();
+    public function update(Request $request){
+        $user=auth()->user();
 
         //method1
 
@@ -137,13 +94,13 @@ class ProfileController extends Controller
         //     $destinationPath = public_path(). '/storage/images/';
         //     $filename = $file->getClientOriginalName();
         //     $file->move($destinationPath, $filename);
-
+ 
         //    //then proceeded to save user
         //    $user-> image =           
         //    $destinationPath.$filename;
         //    $user->save();
         //    return redirect()->route('users.edit')->with('success','profile updated successfully');
-
+           
         //    }
         //    else{
         //     $user->save();
@@ -152,41 +109,42 @@ class ProfileController extends Controller
 
 
         //method4 
-        if ($request->hasFile('image')) {
-            $request->validate([
-                'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        if($request->hasFile('image')){
+        $request->validate([
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
 
-            ]);
-            $image_name = time() . '.' . $request->image->extension();
-            // $image_name=time().'.'.$request->image->getClientOriginalExtension();
-            $request->image->move(public_path('avatars'), $image_name);
-            // $path="/public/avatars/".$image_name;
-            $path = "/avatars/" . $image_name;
+        ]);
+        $image_name=time().'.' .$request->image->extension();
+      // $image_name=time().'.'.$request->image->getClientOriginalExtension();
+        $request->image->move(public_path('avatars'),$image_name);
+        // $path="/public/avatars/".$image_name;
+         $path="/avatars/".$image_name;
 
-            $user->image = $path;
-        }
+        $user->image=$path;
+    }
 
 
-        // else
-        // {
-        //     $path="/avatars/user.png";
-        // }
+    // else
+    // {
+    //     $path="/avatars/user.png";
+    // }
 
 
         $user->update([
-            'name' => $request->name,
-            'username' => $request->username,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            //  'image'=>$request->image,//avatar
-            'website' => $request->website,
-            'bio' => $request->bio,
-            'password' => $request->password,
+            'name'=>$request->name,
+            'username'=>$request->username,
+            'email'=>$request->email,
+            'phone'=>$request->phone,
+          //  'image'=>$request->image,//avatar
+             'website'=>$request->website,
+             'bio'=>$request->bio,
+             'password'=>$request->password,
         ]);
-        $profile = Profile::find($id);
-        return redirect()->route('profile.show', compact("user","profile"))->with(['profile' => $user->profile]);
+        
+         return redirect()->route('users.index',compact("user"))->with('success','Profile updated successfully');
+
     }
     // public function followers(){
     //     return view('users.followers');
     // }
-}
+    }
