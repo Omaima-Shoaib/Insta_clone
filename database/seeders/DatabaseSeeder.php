@@ -114,18 +114,7 @@ class DatabaseSeeder extends Seeder
            'user_id'=>'2'
         ]);
         
-         $savedpost4=\App\Models\Like::create([
-           'id'=>'1',
-           'post_id'=>'3',
-           'user_id'=>'1'
-        ]);
-        
-         $savedpost4=\App\Models\Like::create([
-           'id'=>'2',
-           'post_id'=>'3',
-           'user_id'=>'2'
-        ]);
-        
+       
         
          $comment1=\App\Models\Comment::create([
            'id'=>'1',
