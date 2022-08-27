@@ -6,11 +6,12 @@ commands
 <br>
 3- php artisan db:seed
 <br>
-4- composer dump-autoload
+4-ALTER TABLE likes ADD PRIMARY KEY(post_id,user_id); <br>
+5- composer dump-autoload
 <br>
-5- php artisan queue:work
+6- php artisan queue:work
 <br>
-6- php artisan serve
+7- php artisan serve
 
 
 
