@@ -38,6 +38,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 - [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
+
+
 ## Omaima Shoaib Ahmed
 1.User can add post(single/multiple images, caption)<br>
 2.Image is required while caption is optional<br>
@@ -49,3 +51,30 @@ user name, time comment is created and comment text .<br>
 ![view_post1](https://user-images.githubusercontent.com/102256485/186943067-a4ea332f-627c-4e0d-9dd9-d5ccece08c33.jpg)
 ![saved_posts1](https://user-images.githubusercontent.com/102256485/186943163-8e270381-c020-4b0c-96da-7ad7142183b5.jpg)
 ![emptylist](https://user-images.githubusercontent.com/102256485/186944844-fa92eed7-9f33-4549-b51d-5e75e4eb7772.jpg)
+
+
+
+<br><br>
+## Aya Ibrahim 
+1.User can Login and Sign up by laravel breeze.<br>
+2.We send verify message to user using Mailtrap to login in website (hint: to my mailtrap to verify user email). <br>
+3.User can also login with his google account and it wil send verify message. <br>
+4.We will send notification when registered to website.<br>
+5- If you forget your password , you will receive resent message and you can change it. <br>
+6- User will receive welcome notification to his mail after register (using php artisan queue) (hint: to my mailtrap to user email). <br>
+![login](https://user-images.githubusercontent.com/102617431/187003036-f3122298-5026-41bc-bbfc-094fd5cab5e3.JPG)
+![signup_with_google_account](https://user-images.githubusercontent.com/102617431/187003144-64ae629e-cdb8-4325-806d-2277c4d82582.JPG)
+![sign_up](https://user-images.githubusercontent.com/102617431/187003513-c473ce6a-19d1-4fc0-bb9f-90e0750dd1c9.JPG)
+![verify_email](https://user-images.githubusercontent.com/102617431/187003753-bfee9a0b-34c6-4775-a6bc-f2029d697d96.JPG)
+![mailtrap_verify_mail](https://user-images.githubusercontent.com/102617431/187004564-5e252d6d-2bdc-478a-b2ab-1a70c6a206f1.JPG)
+![forget-password](https://user-images.githubusercontent.com/102617431/187004880-69865be6-2515-4cf8-b936-2d92d11d3034.JPG)
+![reset-password-notification](https://user-images.githubusercontent.com/102617431/187004977-9d0db2b5-5417-45f7-8b02-975b2f32eba8.JPG)
+![change_password](https://user-images.githubusercontent.com/102617431/187005139-78165d0c-540b-45f9-abd1-a12605ecfd8d.JPG)
+![queue-notification](https://user-images.githubusercontent.com/102617431/187005530-8186d956-fbe0-42ca-9847-a3a10f5e867a.JPG)
+
+
+
+
+
+
+
